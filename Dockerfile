@@ -1,15 +1,10 @@
-FROM alpine:latest
+FROM python:3.8-slim
 
-RUN apk add --no-cache python3-dev \
-    && python3 -m ensurepip \
-    && pip3 install --upgrade pip
+RUN pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+RUN pip config set install.trusted-host mirrors.aliyun.com
 
 WORKDIR /app
-
 COPY . /app
-
-RUN pip3 --no-cache-dir install -r requirements.txt
-
+RUN pip --no-cache-dir install -r requirements.txt
 EXPOSE 5000
-
-CMD ["python3", "app.py"]
+CMD ["python", "app.py"]

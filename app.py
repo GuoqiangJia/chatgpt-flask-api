@@ -6,7 +6,8 @@ from flask import jsonify
 import openai
 import os
 
-openai.api_key = os.environ['openai.api_key']
+# openai.api_key = os.environ['openai_api_key']
+openai.api_key = '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'
 
 app = Flask(__name__)
 api = Api(app)
@@ -21,7 +22,7 @@ model_engine = "text-davinci-003"
 
 
 class Prompt(Resource):
-    def put(self):
+    def post(self):
         prompt = request.form['text']
         completion = openai.Completion.create(
             engine=model_engine,
