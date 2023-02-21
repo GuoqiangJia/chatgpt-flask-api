@@ -1,0 +1,6 @@
+Flask
+flask-restful
+flask_cors
+flask-httpauth
+openai
+logging

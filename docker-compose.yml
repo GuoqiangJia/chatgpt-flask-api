@@ -1,0 +1,16 @@
+version: '3'
+services:
+  ocr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        openai_api_key: your-openai-api-key
+    image: chatgpt-flast-api:latest
+    container_name: chatgpt-flast-api-container
+    restart: always
+    ports:
+      - "2400:5000"
+    environment:
+      - LANG=C.UTF-8
+      - LC_ALL=C.UTF-8
