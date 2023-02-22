@@ -12,4 +12,4 @@ services:
     environment:
       - LANG=C.UTF-8
       - LC_ALL=C.UTF-8
-      - openai_api_key=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
+      - openai_api_key=your_openai_api_key
